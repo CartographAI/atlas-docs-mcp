@@ -1,9 +1,21 @@
 {
-  "name": "atlas",
-  "module": "src/index.ts",
+  "name": "@cartographai/atlas-docs-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for getting documentation for libraries and frameworks",
+  "homepage": "https://github.com/CartographAI/atlas-docs-mcp",
+  "license": "MIT",
+  "keywords": ["agents", "llm", "model-context-protocol"],
   "type": "module",
+  "bin": {
+    "atlas-docs-mcp": "dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "tsup": "^8.4.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
