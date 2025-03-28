@@ -24,41 +24,21 @@ const server = new Server(
 const ListDocsSchema = z.object({});
 
 const GetDocsIndexSchema = z.object({
-  docName: z
-    .string()
-    .describe(
-      "The unique identifier or name of the documentation set you want to explore. Get this from list_docs first if you're unsure.",
-    ),
+  docName: z.string().describe("Name of the documentation set"),
 });
 
 const GetDocsFullSchema = z.object({
-  docName: z
-    .string()
-    .describe(
-      "The unique identifier or name of the documentation set you want to explore. Get this from list_docs first if you're unsure.",
-    ),
+  docName: z.string().describe("Name of the documentation set"),
 });
 
 const GetDocsPageSchema = z.object({
-  docName: z
-    .string()
-    .describe(
-      "The unique identifier or name of the documentation set you want to explore. Get this from list_docs first if you're unsure.",
-    ),
-  pageName: z
-    .string()
-    .describe(
-      "The specific page name within the documentation set. Get the available pages from get_docs_index first if you're unsure.",
-    ),
+  docName: z.string().describe("Name of the documentation set"),
+  pageName: z.string().describe("Specific page name within the documentation set"),
 });
 
 const SearchDocsSchema = z.object({
-  docName: z
-    .string()
-    .describe(
-      "The unique identifier or name of the documentation set you want to explore. Get this from list_docs first if you're unsure.",
-    ),
-  query: z.string().describe("The search query to find relevant pages within the documentation."),
+  docName: z.string().describe("Name of the documentation set"),
+  query: z.string().describe("Search query to find relevant pages within the documentation set"),
 });
 
 const ToolInputSchema = ToolSchema.shape.inputSchema;
@@ -79,32 +59,32 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: "list_docs",
         description:
-          "Lists all available documentation libraries and frameworks. Use this first to discover what documentation is available and get basic metadata about each documentation set. Returns a list of documentation sets with their names, descriptions, and types.",
+          "Lists all available documentation libraries and frameworks. Use this as your first step to discover available documentation sets. Returns name, description and source url for each documentation set. Required before using other documentation tools since you need the docName.",
         inputSchema: zodToJsonSchema(ListDocsSchema) as ToolInput,
-      },
-      {
-        name: "get_docs_index",
-        description:
-          "Retrieves a condensed, LLM-friendly index of a documentation set. Use this when you need a high-level understanding of what topics and concepts are covered in a library's documentation. This is ideal for initial exploration or when you need to determine which parts of the documentation are relevant to a user's query.",
-        inputSchema: zodToJsonSchema(GetDocsIndexSchema) as ToolInput,
-      },
-      {
-        name: "get_docs_full",
-        description:
-          "Retrieves the complete documentation content in a single consolidated file. Use this when you need comprehensive knowledge about a library or when you need to search through the entire documentation for specific details. Note that this returns a larger volume of text.",
-        inputSchema: zodToJsonSchema(GetDocsFullSchema) as ToolInput,
-      },
-      {
-        name: "get_docs_page",
-        description:
-          "Retrieves a specific documentation page's content. Use this when you already know which page contains the information you need, or after using search to identify relevant pages. This provides detailed information about a specific topic, function, or feature.",
-        inputSchema: zodToJsonSchema(GetDocsPageSchema) as ToolInput,
       },
       {
         name: "search_docs",
         description:
-          "Search through a documentation set for specific content. Returns weighted search results that match the query, ordered by relevance. This is useful for finding specific information across all pages in a documentation set.",
+          "Searches a documentation set for specific content. Use this to find pages containing particular keywords, concepts, or topics. Returns matching pages ranked by relevance with descriptions. Follow up with get_docs_page to get full content.",
         inputSchema: zodToJsonSchema(SearchDocsSchema) as ToolInput,
+      },
+      {
+        name: "get_docs_index",
+        description:
+          "Retrieves a condensed, LLM-friendly index of the pages in a documentation set. Use this for initial exploration to understand what's covered and identify relevant pages. Returns a structured overview that helps determine which specific pages to fetch.",
+        inputSchema: zodToJsonSchema(GetDocsIndexSchema) as ToolInput,
+      },
+      {
+        name: "get_docs_page",
+        description:
+          "Retrieves a specific documentation page's content. Use this to get detailed information about a known topic, after identifying the relevant page through get_docs_index or search_docs. Returns the complete content of a single documentation page.",
+        inputSchema: zodToJsonSchema(GetDocsPageSchema) as ToolInput,
+      },
+      {
+        name: "get_docs_full",
+        description:
+          "Retrieves the complete documentation content in a single consolidated file. Use this when you need comprehensive knowledge or need to analyze the full documentation context. Returns a large volume of text - consider using get_docs_page or search_docs for targeted information.",
+        inputSchema: zodToJsonSchema(GetDocsFullSchema) as ToolInput,
       },
     ],
   };
