@@ -52,6 +52,15 @@ const GetDocsPageSchema = z.object({
     ),
 });
 
+const SearchDocsSchema = z.object({
+  docName: z
+    .string()
+    .describe(
+      "The unique identifier or name of the documentation set you want to explore. Get this from list_docs first if you're unsure.",
+    ),
+  query: z.string().describe("The search query to find relevant pages within the documentation."),
+});
+
 const ToolInputSchema = ToolSchema.shape.inputSchema;
 type ToolInput = z.infer<typeof ToolInputSchema>;
 
@@ -90,6 +99,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         description:
           "Retrieves a specific documentation page's content. Use this when you already know which page contains the information you need, or after using search to identify relevant pages. This provides detailed information about a specific topic, function, or feature.",
         inputSchema: zodToJsonSchema(GetDocsPageSchema) as ToolInput,
+      },
+      {
+        name: "search_docs",
+        description:
+          "Search through a documentation set for specific content. Returns weighted search results that match the query, ordered by relevance. This is useful for finding specific information across all pages in a documentation set.",
+        inputSchema: zodToJsonSchema(SearchDocsSchema) as ToolInput,
       },
     ],
   };
@@ -154,6 +169,20 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
+      case "search_docs": {
+        const parsedArgs = SearchDocsSchema.safeParse(args);
+        if (!parsedArgs.success) {
+          throw new Error(`Invalid arguments: ${parsedArgs.error}`);
+        }
+
+        const { docName, query } = parsedArgs.data;
+        const searchResults = await fetchApi(`/docs/${docName}/search?q=${encodeURIComponent(query)}`);
+
+        return {
+          content: [{ type: "text", text: JSON.stringify(searchResults, null, 2) }],
+        };
+      }
+
       default:
         return {
           content: [{ type: "text", text: `Unknown tool: ${name}` }],
@@ -174,6 +203,7 @@ export async function runServer() {
   try {
     const transport = new StdioServerTransport();
     await server.connect(transport);
+
     console.error("Documentation MCP Server running on stdio");
   } catch (error) {
     console.error("Error during server setup:", error);
