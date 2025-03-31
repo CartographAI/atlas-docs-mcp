@@ -6,9 +6,7 @@
   "license": "MIT",
   "keywords": ["agents", "llm", "model-context-protocol"],
   "type": "module",
-  "bin": {
-    "atlas-docs-mcp": "dist/index.js"
-  },
+  "bin": "dist/index.js",
   "files": ["dist"],
   "scripts": {
     "build": "tsup"
