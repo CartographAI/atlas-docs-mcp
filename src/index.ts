@@ -118,7 +118,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         const docName = parsedArgs.data.docName;
-        const page = await fetchApi(`/docs/${docName}/pages/llms.txt`);
+        const page = await fetchApi(`/docs/${docName}/pages/%2Fllms.txt`);
 
         return {
           content: [{ type: "text", text: JSON.stringify(page, null, 2) }],
@@ -132,7 +132,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         const docName = parsedArgs.data.docName;
-        const page = await fetchApi(`/docs/${docName}/pages/llms-full.txt`);
+        const page = await fetchApi(`/docs/${docName}/pages/%2Fllms-full.txt`);
 
         return {
           content: [{ type: "text", text: JSON.stringify(page, null, 2) }],
