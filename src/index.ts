@@ -146,7 +146,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         const { docName, pagePath } = parsedArgs.data;
-        const page = await fetchApi(`/docs/${docName}/pages/${pagePath}`);
+        // we need to encodeURIComponent as the pagePath is likely to contain slashes
+        const page = await fetchApi(`/docs/${docName}/pages/${encodeURIComponent(pagePath)}`);
 
         return {
           content: [{ type: "text", text: JSON.stringify(page, null, 2) }],
