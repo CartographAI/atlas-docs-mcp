@@ -33,7 +33,11 @@ const GetDocsFullSchema = z.object({
 
 const GetDocsPageSchema = z.object({
   docName: z.string().describe("Name of the documentation set"),
-  pageName: z.string().describe("Specific page name within the documentation set"),
+  pagePath: z
+    .string()
+    .describe(
+      "The root-relative path of the specific documentation page (e.g., '/guides/getting-started', '/api/authentication')",
+    ),
 });
 
 const SearchDocsSchema = z.object({
@@ -65,19 +69,19 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: "search_docs",
         description:
-          "Searches a documentation set for specific content. Use this to find pages containing particular keywords, concepts, or topics. Returns matching pages ranked by relevance with descriptions. Follow up with get_docs_page to get full content.",
+          "Searches a documentation set for specific content. Use this to find pages containing particular keywords, concepts, or topics. Returns matching pages ranked by relevance with their paths and descriptions. Follow up with get_docs_page to get full content.",
         inputSchema: zodToJsonSchema(SearchDocsSchema) as ToolInput,
       },
       {
         name: "get_docs_index",
         description:
-          "Retrieves a condensed, LLM-friendly index of the pages in a documentation set. Use this for initial exploration to understand what's covered and identify relevant pages. Returns a structured overview that helps determine which specific pages to fetch.",
+          "Retrieves a condensed, LLM-friendly index of the pages in a documentation set. Use this for initial exploration to understand what's covered and identify relevant pages. Returns a markdown page with a list of available pages. Follow up with get_docs_page to get full content.",
         inputSchema: zodToJsonSchema(GetDocsIndexSchema) as ToolInput,
       },
       {
         name: "get_docs_page",
         description:
-          "Retrieves a specific documentation page's content. Use this to get detailed information about a known topic, after identifying the relevant page through get_docs_index or search_docs. Returns the complete content of a single documentation page.",
+          "Retrieves a specific documentation page's content using its relative path. Use this to get detailed information about a known topic, after identifying the relevant page through get_docs_index or search_docs. Returns the complete content of a single documentation page.",
         inputSchema: zodToJsonSchema(GetDocsPageSchema) as ToolInput,
       },
       {
@@ -141,8 +145,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           throw new Error(`Invalid arguments: ${parsedArgs.error}`);
         }
 
-        const { docName, pageName } = parsedArgs.data;
-        const page = await fetchApi(`/docs/${docName}/pages/${pageName}`);
+        const { docName, pagePath } = parsedArgs.data;
+        const page = await fetchApi(`/docs/${docName}/pages/${pagePath}`);
 
         return {
           content: [{ type: "text", text: JSON.stringify(page, null, 2) }],
