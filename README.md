@@ -2,10 +2,12 @@
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that provides AI assistants with documentation for libraries and frameworks.
 
+> [!WARNING]
+> Atlas Docs is currently in beta. Not everything might work perfectly, but we're actively improving the service. Your patience and [feedback](#support--feedback) are greatly appreciated!
+
 ## What Does This Server Do?
 
 LLMs are great at generating general code, but suck at correctly using less popular or newly released libraries. This isn't surprising, since the models have not been trained comprehensively on code using these libraries.
-
 
 Atlas Docs MCP server:
 
@@ -90,4 +92,4 @@ Atlas Docs processes tech libraries' documentation sites into clean, markdown ve
 
 Please [open an issue](https://github.com/CartographAI/atlas/issues/new) in this repo to request docs for a library, or to report a bug.
 
-You can also find us on Cartograph's [Discord comunity](https://discord.gg/MsBA7U7hH5) for real-time support, or email us at [contact@cartograph.app](mailto:contact@cartograph.app)
+If you have any questions, feedback, or just want to say hi, we'd love to hear from you. You can find us on Cartograph's [Discord comunity](https://discord.gg/MsBA7U7hH5) for real-time support, or email us at [contact@cartograph.app](mailto:contact@cartograph.app)
