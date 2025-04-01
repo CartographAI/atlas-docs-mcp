@@ -56,7 +56,6 @@ That's it! You may need to restart the app (for Claude Desktop) for the server t
 - Astro (source: https://docs.astro.build/en/getting-started)
 - ast-grep (source: https://ast-grep.github.io/llms.txt)
 - Bun (source: https://bun.sh/llms.txt)
-- ChakraUI (source: https://chakra-ui.com/llms.txt)
 - CrewAI (source: https://docs.crewai.com/llms.txt)
 - Drizzle (source: https://orm.drizzle.team/llms.txt)
 - ElevenLabs (source: https://elevenlabs.io/docs/llms.txt)
