@@ -6,11 +6,22 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) s
 
 LLMs are great at generating general code, but suck at correctly using less popular or newly released libraries. This isn't surprising, since the models have not been trained comprehensively on code using these libraries.
 
+
 Atlas Docs MCP server:
 
 - Provides technical documentation for libraries and frameworks
 - Processes the official docs into a clean markdown version for LLM consumption
 - Is easy to set up with Cursor, Cline, Windsurf and any other MCP-compatible LLM clients
+
+**Claude 3.5 Sonnet on its own:**
+
+![elevenlabs-without-atlas-annotated](https://github.com/user-attachments/assets/78b8309c-0f86-4b20-93d7-2116419f75fd)
+
+**Claude 3.5 Sonnet with Atlas Docs MCP:**
+
+![elevenlabs-with-atlas-annotated](https://github.com/user-attachments/assets/258c5126-242f-43d1-8e78-ea655f44d76a)
+
+<video src="https://github.com/user-attachments/assets/5fb1f3f2-18db-4ba4-8f47-da3892af22ee"></video>
 
 ## 📦 Installation
 
