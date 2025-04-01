@@ -82,7 +82,8 @@ Want docs for another library not in this list? Please [open an issue](https://g
 1. `list_docs`: List all available documentation sets
 2. `get_docs_index`: Retrieves a condensed, LLM-friendly index of a documentation set
 3. `get_docs_full`: Retrieves a complete documentation set in a single consolidated file
-4. `get_docs_page`: Retrieves a specific page of a documentation set
+4. `search_docs`: Search a documentation set by keywords
+5. `get_docs_page`: Retrieves a specific page of a documentation set
 
 ## 💭 How It Works
 
