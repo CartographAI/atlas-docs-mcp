@@ -11,7 +11,7 @@ const ATLAS_API_URL = process.env.ATLAS_API_URL ?? "https://atlas.cartograph.app
 const server = new Server(
   {
     name: "atlas-docs-mcp-server",
-    version: "0.1.0",
+    version: "0.2.0",
   },
   {
     capabilities: {

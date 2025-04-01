@@ -1,5 +1,7 @@
 # Atlas Docs MCP Server
 
+[![NPM Version](https://img.shields.io/npm/v/%40cartographai%2Fatlas-docs-mcp)](https://www.npmjs.com/package/@cartographai/atlas-docs-mcp)
+
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that provides AI assistants with documentation for libraries and frameworks.
 
 > [!WARNING]
