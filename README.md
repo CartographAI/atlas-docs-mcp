@@ -1,6 +1,7 @@
 # Atlas Docs MCP Server
 
 [![NPM Version](https://img.shields.io/npm/v/%40cartographai%2Fatlas-docs-mcp)](https://www.npmjs.com/package/@cartographai/atlas-docs-mcp)
+[![smithery badge](https://smithery.ai/badge/@CartographAI/atlas-docs-mcp)](https://smithery.ai/server/@CartographAI/atlas-docs-mcp)
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that provides AI assistants with documentation for libraries and frameworks.
 
@@ -29,6 +30,15 @@ Atlas Docs MCP server:
 
 ## 📦 Installation
 
+### Installing via Smithery
+
+To install atlas-docs-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@CartographAI/atlas-docs-mcp):
+
+```bash
+npx -y @smithery/cli install @CartographAI/atlas-docs-mcp --client claude
+```
+
+### Manual Installation
 Atlas Docs MCP server works with any MCP client that supports the `stdio` protocol, including:
 
 - Cursor
