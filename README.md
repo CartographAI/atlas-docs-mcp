@@ -55,6 +55,7 @@ That's it! You may need to restart the app (for Claude Desktop) for the server t
 
 ## 📒 Available Libraries
 
+- AI-SDK (source: https://sdk.vercel.ai/docs/introduction)
 - Astro (source: https://docs.astro.build/en/getting-started)
 - ast-grep (source: https://ast-grep.github.io/llms.txt)
 - Bun (source: https://bun.sh/llms.txt)
@@ -70,8 +71,10 @@ That's it! You may need to restart the app (for Claude Desktop) for the server t
 - Pglite (source: https://pglite.dev/docs/about)
 - Prisma (source: https://www.prisma.io/docs/llms.txt)
 - Resend (source: https://resend.com/docs/llms.txt)
+- shadcn/ui (source: https://ui.shadcn.com/docs)
 - Stripe (source: https://docs.stripe.com/llms.txt)
 - Svelte (source: https://svelte.dev/docs/svelte/overview)
+- SvelteKit (source: https://svelte.dev/docs/kit/introduction)
 - Trigger.dev (source: https://trigger.dev/docs/llms.txt)
 - X (source: https://docs.x.com/llms.txt)
 - Zapier (source: https://docs.zapier.com/llms.txt)
