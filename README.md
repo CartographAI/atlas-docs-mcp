@@ -30,15 +30,6 @@ Atlas Docs MCP server:
 
 ## 📦 Installation
 
-### Installing via Smithery
-
-To install atlas-docs-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@CartographAI/atlas-docs-mcp):
-
-```bash
-npx -y @smithery/cli install @CartographAI/atlas-docs-mcp --client claude
-```
-
-### Manual Installation
 Atlas Docs MCP server works with any MCP client that supports the `stdio` protocol, including:
 
 - Cursor
@@ -62,6 +53,16 @@ Add the following to your MCP client configuration file:
 That's it! You may need to restart the app (for Claude Desktop) for the server to be recognised.
 
 **Tip**: Prompt your model to check the docs eg. "Use the tools to check the documentation for Astro to ensure that you use the library correctly."
+
+### Installing via Smithery
+
+Alternatively, you can install Atlas Docs MCP automatically via [Smithery](https://smithery.ai/server/@CartographAI/atlas-docs-mcp). Example for claude desktop:
+
+```bash
+npx -y @smithery/cli install @CartographAI/atlas-docs-mcp --client claude
+```
+
+Change "claude" to "cursor", "cline" or "windsurf" for the respective clients.
 
 ## 📒 Available Libraries
 
