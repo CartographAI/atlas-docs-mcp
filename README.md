@@ -86,6 +86,8 @@ Change "claude" to "cursor", "cline" or "windsurf" for the respective clients.
 - Stripe (source: https://docs.stripe.com/llms.txt)
 - Svelte (source: https://svelte.dev/docs/svelte/overview)
 - SvelteKit (source: https://svelte.dev/docs/kit/introduction)
+- tailwindcss (source: https://tailwindcss.com/docs/installation)
+- TanStack-Router (source: https://tanstack.com/router/latest/docs/framework/react/overview)
 - Trigger.dev (source: https://trigger.dev/docs/llms.txt)
 - X (source: https://docs.x.com/llms.txt)
 - Zapier (source: https://docs.zapier.com/llms.txt)
