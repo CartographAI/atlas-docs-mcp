@@ -106,6 +106,11 @@ Want docs for another library not in this list? Please [open an issue](https://g
 
 Atlas Docs processes tech libraries' documentation sites into clean, markdown versions. This MCP server provides the docs as MCP tools, calling Atlas Docs APIs for the data.
 
+## Running the backend locally
+
+Please visit [CartographAI/atlas](https://github.com/CartographAI/atlas) and follow the instructions in the README.
+Update ATLAS_API_URL with the url of your deployment.
+
 ## Support & Feedback
 
 Please [open an issue](https://github.com/CartographAI/atlas/issues/new) in this repo to request docs for a library, or to report a bug.
