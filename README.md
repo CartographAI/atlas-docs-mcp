@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/cartographai-atlas-docs-mcp-badge.png)](https://mseep.ai/app/cartographai-atlas-docs-mcp)
+
 # Atlas Docs MCP Server
 
 [![NPM Version](https://img.shields.io/npm/v/%40cartographai%2Fatlas-docs-mcp)](https://www.npmjs.com/package/@cartographai/atlas-docs-mcp)
