@@ -1,7 +1,7 @@
 # Atlas Docs MCP Server
 
 [![NPM Version](https://img.shields.io/npm/v/%40cartographai%2Fatlas-docs-mcp)](https://www.npmjs.com/package/@cartographai/atlas-docs-mcp)
-[![smithery badge](https://smithery.ai/badge/@CartographAI/atlas-docs-mcp)](https://smithery.ai/server/@CartographAI/atlas-docs-mcp)
+[![LightNow capabilities](https://lightnow.ai/badge/io.github.CartographAI/atlas-docs-mcp)](https://lightnow.ai/servers/io.github.CartographAI/atlas-docs-mcp)
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that provides AI assistants with documentation for libraries and frameworks.
 
